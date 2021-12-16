@@ -33,14 +33,14 @@ class StudentController {
 
     }
 
-
+//
 //    @GetMapping("/")
 //    fun getHomePage(student: Student,model: Model):String{
 //        model.addAttribute("courses",courses)
 //        return "index"
 //    }
-//
-    @GetMapping("/")
+
+    @GetMapping("/student")
     fun home(student: Student,model: Model):String{
         model.addAttribute("courses",courses)
         return "register"

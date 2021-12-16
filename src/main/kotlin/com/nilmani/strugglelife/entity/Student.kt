@@ -1,9 +1,6 @@
 package com.nilmani.strugglelife.entity
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
 data class Student(
@@ -14,6 +11,7 @@ data class Student(
     val lastName:String ="",
     val mobile:String = "",
     val course:String = "",
+    @Column(unique = true)
     val email:String = "",
     val password:String = "",
     val gender:String = ""
