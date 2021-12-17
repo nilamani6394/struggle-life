@@ -11,3 +11,4 @@ spring:
       ddl-auto: update
 
       #https://github.com/skarware/spring-boot-blog-app
+      #https://github.com/spdeepak/Example/tree/master/Kotlin-Spring-Security-DB-Authentication
