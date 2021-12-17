@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
+import org.springframework.web.bind.annotation.PostMapping
+import java.lang.NullPointerException
 
 @Controller
 class LoginController {
@@ -38,23 +40,24 @@ class LoginController {
    fun studentLogin(@ModelAttribute request:ReqStudent,model: Model):String{
        val message:String=""
        val existingStudent = studentRepository.findByEmail(request.email)
-       if (existingStudent != null){
-           if (existingStudent.course == request.email && existingStudent.password == request.password){
-               model.addAttribute("request",request)
-               return "register"
-           }else{
-               println("Sorry inconvintional username and password")
+           try {
+               if (existingStudent?.email == request.email && existingStudent.password == request.password){
+//                   model.addAttribute("request",request)
+                   return "redirect:LoginSuccesspage"
+               }else{
+                   println("Sorry inconvintional username and password")
+               }
+
+           }catch (e:NullPointerException){
+               e.stackTrace
            }
-       }else{
-           model.addAttribute("email Not found",message)
-       }
        return "login"
    }
 
-    @GetMapping("/")
-    fun showLogin():String{
-        return "login"
-    }
+//    @GetMapping("/")
+//    fun showLogin():String{
+//        return "login"
+//    }
 
     fun login(@ModelAttribute("student")student: Student,model: Model){
 

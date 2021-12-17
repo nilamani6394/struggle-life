@@ -40,7 +40,7 @@ class StudentController {
 //        return "index"
 //    }
 
-    @GetMapping("/student")
+    @GetMapping("/")
     fun home(student: Student,model: Model):String{
         model.addAttribute("courses",courses)
         return "register"

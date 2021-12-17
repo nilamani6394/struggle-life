@@ -9,3 +9,5 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+
+      #https://github.com/skarware/spring-boot-blog-app
